@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pkdriller-Solutions | Professional Developer Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1e90ff;
+      --accent: #00adb5;
+      --bg: #f8f9fa;
+      --dark: #222831;
+      --light: #fff;
+      --gray: #393e46;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      scroll-behavior: smooth;
+    }
+    header {
+      background: var(--primary);
+      color: var(--light);
+      padding: 1.5rem 0 1rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(30,144,255,0.1);
+    }
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .logo i {
+      color: var(--accent);
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      background: var(--light);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.08);
+      margin-top: 2rem;
+      padding: 2rem;
+    }
+    .hero-text {
+      flex: 1;
+    }
+    .hero-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+    .hero-cta {
+      background: var(--primary);
+      color: var(--light);
+      padding: 0.75rem 2rem;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-right: 1rem;
+    }
+    .hero-cta:hover {
+      background: var(--accent);
+    }
+    .hero-img {
+      flex: 0 0 250px;
+      text-align: center;
+    }
+    .hero-img i {
+      font-size: 7rem;
+      color: var(--accent);
+      background: var(--bg);
+      border-radius: 50%;
+      padding: 1rem;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+    }
+    .section-title {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* Services */
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .service-card {
+      background: var(--light);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+      padding: 1.5rem;
+      flex: 1 1 270px;
+      min-width: 250px;
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1rem;
+      transition: transform 0.15s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 4px 24px rgba(30,144,255,0.12);
+    }
+    .service-card i, .service-card img {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .service-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .service-desc {
+      font-size: 1rem;
+      color: var(--gray);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .service-price {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .order-btn {
+      background: var(--primary);
+      color: var(--light);
+      border: none;
+      border-radius: 20px;
+      padding: 0.6rem 1.4rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-top: auto;
+    }
+    .order-btn:hover {
+      background: var(--accent);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .testimonial {
+      background: var(--light);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+      padding: 1.2rem 1rem;
+      max-width: 340px;
+      min-width: 220px;
+      margin-bottom: 1rem;
+    }
+    .testimonial .user {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.5rem;
+    }
+    .testimonial .user img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
+    .testimonial .user-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .testimonial .stars {
+      color: gold;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+    .testimonial-text {
+      font-size: 0.97rem;
+      color: var(--gray);
+      margin-bottom: 0.2rem;
+    }
+
+    /* Quotes */
+    .quotes-box {
+      margin: 2.5rem auto 0 auto;
+      background: var(--primary);
+      color: var(--light);
+      border-radius: 14px;
+      max-width: 700px;
+      padding: 1.2rem 1.5rem;
+      font-size: 1.3rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(30,144,255,0.07);
+      min-height: 70px;
+      transition: background 0.15s;
+    }
+
+    /* Contact */
+    .contact-box {
+      margin: 2.5rem auto 0 auto;
+      background: var(--light);
+      border-radius: 12px;
+      max-width: 700px;
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+    }
+    .contact-info {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: var(--gray);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.7rem;
+    }
+    .contact-info i {
+      color: var(--primary);
+      margin-right: 10px;
+    }
+    .contact-socials {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+    }
+    .contact-socials a {
+      color: var(--primary);
+      margin-right: 1.2rem;
+      transition: color 0.2s;
+    }
+    .contact-socials a:hover {
+      color: var(--accent);
+    }
+
+    /* FAQ */
+    .faq {
+      margin: 2.5rem auto 0 auto;
+      background: var(--light);
+      border-radius: 12px;
+      max-width: 700px;
+      padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+    }
+    .faq-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+    .faq-q {
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--gray);
+      margin-bottom: 0.2rem;
+      position: relative;
+    }
+    .faq-a {
+      font-size: 1rem;
+      color: var(--dark);
+      margin-left: 1.2rem;
+      display: none;
+    }
+    .faq-q.active + .faq-a {
+      display: block;
+    }
+
+    /* About Us */
+    .about-box {
+      margin: 2.5rem auto 0 auto;
+      background: var(--light);
+      border-radius: 12px;
+      max-width: 700px;
+      padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+      text-align: center;
+    }
+    .about-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .about-text {
+      font-size: 1.05rem;
+      color: var(--gray);
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      width: 62px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+      z-index: 999;
+      cursor: pointer;
+      transition: background 0.2s;
+      border: none;
+      outline: none;
+    }
+    .whatsapp-float:hover {
+      background: #128C7E;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-img {
+        margin-top: 1rem;
+      }
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    @media (max-width: 700px) {
+      .container {
+        padding: 1rem 0.5rem;
+      }
+      .about-box, .faq, .contact-box, .quotes-box {
+        padding: 1rem 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <i class="fas fa-bolt"></i> Pkdriller-Solutions
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#quotes">Business Quotes</a>
+      <a href="#faq">FAQ</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <div class="hero-title">Grow Your Business with <span style="color: var(--primary);">Pkdriller-Solutions</span></div>
+        <div class="hero-subtitle">
+          We deliver professional digital solutions: WhatsApp Bots, Website Development, Social Media Boosting, and more.<br>
+          Get top-rated, affordable tech services from Ksh 100!
+        </div>
+        <a class="hero-cta" href="https://wa.me/254700000000?text=Hello%20Pkdriller-Solutions%2C%20I%27m%20interested%20in%20your%20services!" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order Now on WhatsApp
+        </a>
+      </div>
+      <div class="hero-img">
+        <i class="fas fa-laptop-code"></i>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <div class="section-title" id="services">Our Services</div>
+    <section class="services">
+      <!-- Service 1: WhatsApp Bot Development -->
+      <div class="service-card">
+        <i class="fab fa-whatsapp"></i>
+        <div class="service-title">WhatsApp Bot Development</div>
+        <div class="service-desc">Automate your WhatsApp! Get a smart, custom bot to handle customers, send alerts, or collect leads.</div>
+        <div class="service-price">From 1,000 KSH</div>
+        <a class="order-btn" href="https://wa.me/254700000000?text=I%20want%20a%20WhatsApp%20Bot%20Developed%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 2: Website Development -->
+      <div class="service-card">
+        <i class="fas fa-globe"></i>
+        <div class="service-title">Website Development</div>
+        <div class="service-desc">Modern, responsive websites for your brand, shop, or portfolio. Fast delivery, mobile-ready.</div>
+        <div class="service-price">From 1,000 KSH</div>
+        <a class="order-btn" href="https://wa.me/254700000000?text=I%20want%20a%20Website%20Developed%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 3: Social Media Boosting -->
+      <div class="service-card">
+        <i class="fas fa-bullhorn"></i>
+        <div class="service-title">Social Media Boosting</div>
+        <div class="service-desc">Grow your followers & engagement on Facebook, Instagram, WhatsApp, and more at unbeatable rates.</div>
+        <div class="service-price">Affordable Price</div>
+        <a class="order-btn" href="https://wa.me/254700000000?text=I%20want%20Social%20Media%20Boosting%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 4: Logo Creation -->
+      <div class="service-card">
+        <i class="fas fa-pen-nib"></i>
+        <div class="service-title">Logo Design</div>
+        <div class="service-desc">Get a unique, high-quality logo for your business or project in hours!</div>
+        <div class="service-price">From 100 KSH</div>
+        <a class="order-btn" href="https://wa.me/254700000000?text=I%20want%20a%20Logo%20Designed%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 5: Poster Design -->
+      <div class="service-card">
+        <i class="fas fa-image"></i>
+        <div class="service-title">Poster Design</div>
+        <div class="service-desc">Vibrant, eye-catching posters for events, ads, and social media.</div>
+        <div class="service-price">150 KSH</div>
+        <a class="order-btn" href="https://wa.me/254700000000?text=I%20want%20a%20Poster%20Designed%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 6: Image Editing -->
+      <div class="service-card">
+        <i class="fas fa-edit"></i>
+        <div class="service-title">Image Editing</div>
+        <div class="service-desc">Enhance, retouch, or creatively edit your photos quickly and professionally.</div>
+        <div class="service-price">200 KSH</div>
+        <a class="order-btn" href="https://wa.me/254700000000?text=I%20want%20Image%20Editing%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 7: WhatsApp Bot Deployment -->
+      <div class="service-card">
+        <i class="fas fa-rocket"></i>
+        <div class="service-title">WhatsApp Bot Deployment</div>
+        <div class="service-desc">Already have a bot? We’ll deploy & maintain it for you, fast and reliably.</div>
+        <div class="service-price">100 KSH</div>
+        <a class="order-btn" href="https://wa.me/254700000000?text=I%20want%20WhatsApp%20Bot%20Deployment%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 8: Custom Requests -->
+      <div class="service-card">
+        <i class="fas fa-lightbulb"></i>
+        <div class="service-title">Custom Digital Solutions</div>
+        <div class="service-desc">Need something else? Chat with us for custom automations, integrations, and tech help.</div>
+        <div class="service-price">Let's Discuss!</div>
+        <a class="order-btn" href="https://wa.me/254700000000?text=I%20have%20a%20custom%20request%20for%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Chat Now
+        </a>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <div class="section-title" id="testimonials">What Our Clients Say</div>
+    <section class="testimonials">
+      <div class="testimonial">
+        <div class="user">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+          <span class="user-name">James K.</span>
+        </div>
+        <div class="stars">
+          ★★★★★
+        </div>
+        <div class="testimonial-text">
+          Pkdriller-Solutions built my WhatsApp bot in 2 days! My business is now booming. Highly recommended!
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="user">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+          <span class="user-name">Catherine M.</span>
+        </div>
+        <div class="stars">
+          ★★★★★
+        </div>
+        <div class="testimonial-text">
+          The new website is fast, modern, and looks amazing! Great prices and service.
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="user">
+          <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User">
+          <span class="user-name">Victor O.</span>
+        </div>
+        <div class="stars">
+          ★★★★★
+        </div>
+        <div class="testimonial-text">
+          Got my logo and posters in just a few hours. Super quality and very affordable.
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Quotes -->
+    <div class="section-title" id="quotes">Live Business Quotes</div>
+    <div class="quotes-box" id="live-quote">
+      Loading quotes...
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq" id="faq">
+      <div class="faq-title">Frequently Asked Questions</div>
+      <div class="faq-item">
+        <div class="faq-q">How do I order a service?</div>
+        <div class="faq-a">Simply click the WhatsApp order button on any service, and you’ll chat directly with us!</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How fast is delivery?</div>
+        <div class="faq-a">Most services are delivered within 24-48 hours. Fast-track is available on request!</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you offer support after delivery?</div>
+        <div class="faq-a">Yes, we offer free support for delivered projects and affordable maintenance plans.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I request a custom solution?</div>
+        <div class="faq-a">Absolutely! Use the “Custom Digital Solutions” card or contact us to discuss your idea.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What payment methods do you accept?</div>
+        <div class="faq-a">We accept M-Pesa and other local payment options. Details will be provided when you order.</div>
+      </div>
+    </div>
+
+    <!-- About Us -->
+    <div class="about-box" id="about">
+      <div class="about-title">About Pkdriller-Solutions</div>
+      <div class="about-text">
+        Pkdriller-Solutions is a Kenyan-based digital agency helping local businesses thrive online. We specialize in fast, affordable tech solutions for small businesses and individuals.<br>
+        <br>
+        <b>Our Mission:</b> To empower everyone with simple, powerful digital tools.<br>
+        <br>
+        <b>Why Choose Us?</b> <br>
+        - Super affordable pricing<br>
+        - Fast, friendly support<br>
+        - 5-star client satisfaction<br>
+        - 100% local, 100% reliable
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-box" id="contact">
+      <div class="section-title" style="margin-bottom: 1rem;">Contact Us</div>
+      <div class="contact-info">
+        <div><i class="fas fa-envelope"></i> Email: <a href="mailto:pkdriller0@gmail.com">pkdriller0@gmail.com</a></div>
+        <div><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/254700000000" target="_blank">+254 700 000000</a></div>
+        <div><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
+      </div>
+      <div class="contact-socials">
+        <a href="https://wa.me/254700000000" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:pkdriller0@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/254700000000?text=Hi%20Pkdriller-Solutions%2C%20I%20have%20a%20quick%20question!" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- JavaScript for Quotes and FAQ -->
+  <script>
+    // Live Quotes
+    const quotes = [
+      "Success is not for the c
