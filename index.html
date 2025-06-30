@@ -2,480 +2,623 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>PK-DRILLER TECH HUB</title>
+  <title>Pkdriller-Solutions | Professional Developer Services</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts and Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     :root {
-      --primary: #232a34;
-      --secondary: #1a202c;
-      --accent: #5eead4;
-      --danger: #fb7185;
-      --warning: #fbbf24;
-      --info: #60a5fa;
-      --light: #f7fafc;
-      --dark: #111827;
-      --gradient: linear-gradient(120deg, #0f172a 0%, #5eead4 100%);
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      min-height: 100vh;
-      background: var(--primary);
-      color: var(--light);
-      overflow-x: hidden;
+      --primary: #1e90ff;
+      --accent: #00adb5;
+      --bg: #f8f9fa;
+      --dark: #222831;
+      --light: #fff;
+      --gray: #393e46;
     }
     body {
-      background: var(--gradient);
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      scroll-behavior: smooth;
     }
-    /* Navbar */
-    nav {
-      width: 100vw;
-      background: rgba(17,24,39,0.92);
+    header {
+      background: var(--primary);
+      color: var(--light);
+      padding: 1.5rem 0 1rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(30,144,255,0.1);
+    }
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .logo i {
+      color: var(--accent);
+    }
+    nav {
+      margin-top: 1rem;
+    }
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 48px;
-      position: sticky; top:0; z-index:20;
-      box-shadow: 0 2px 18px #0003;
+      gap: 2rem;
+      background: var(--light);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.08);
+      margin-top: 2rem;
+      padding: 2rem;
     }
-    nav .brand {
-      font-size: 2.1rem;
-      color: var(--accent);
-      font-weight: bold;
-      letter-spacing: 1.5px;
-      display: flex; align-items: center; gap: 13px;
-    }
-    nav .menu-toggle {
-      display: none;
-      background: none; border: none;
-      color: var(--accent); font-size: 2.1rem; cursor: pointer;
-    }
-    nav .nav-links {
-      display: flex; gap: 2.2em;
-      align-items: center;
-    }
-    nav .nav-links a {
-      color: var(--light);
-      text-decoration: none;
-      font-size: 1.11rem;
-      font-weight: 500;
-      transition: color 0.2s;
-      position: relative;
-    }
-    nav .nav-links a::after {
-      content: "";
-      display: block;
-      width: 0%;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.2s;
-      border-radius: 5px;
-      margin: 0 auto;
-    }
-    nav .nav-links a:hover {color: var(--accent);}
-    nav .nav-links a:hover::after {width: 80%;}
-    /* Hero */
-    .hero {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      min-height: 340px;
-      margin-top: 30px;
-      text-align: center;
+    .hero-text {
+      flex: 1;
     }
     .hero-title {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 700;
-      letter-spacing: 1.2px;
-      background: linear-gradient(90deg, var(--accent), var(--info), var(--danger));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 0 0 16px 0;
+      margin-bottom: 1rem;
     }
-    .hero-tagline {
-      font-size: 1.3rem;
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+    .hero-cta {
+      background: var(--primary);
       color: var(--light);
-      margin-bottom: 24px;
-      opacity: 0.93;
-    }
-    .hero-btn {
-      font-size: 1.13rem;
-      padding: 12px 38px;
-      border-radius: 30px;
+      padding: 0.75rem 2rem;
       border: none;
-      background: linear-gradient(90deg, var(--accent), var(--info));
-      color: var(--dark);
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 3px 16px #0004;
-      margin-top: 12px;
-      transition: background 0.2s, color 0.2s, transform 0.16s;
-    }
-    .hero-btn:hover {
-      background: linear-gradient(90deg, var(--danger), var(--accent));
-      color: var(--light);
-      transform: scale(1.07);
-    }
-    /* Device/User Info */
-    .info-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 32px;
-      justify-content: center;
-      margin: 60px auto 0 auto;
-      max-width: 900px;
-    }
-    .info-card {
-      background: rgba(255,255,255,0.07);
-      border-radius: 18px;
-      box-shadow: 0 3px 20px #0003;
-      padding: 26px;
-      min-width: 270px;
-      max-width: 330px;
-      flex: 1 1 260px;
-      margin: 0;
-      display: flex; flex-direction: column; align-items: flex-start;
-    }
-    .info-card h3 {
-      margin: 0 0 13px 0;
-      font-size: 1.22rem;
-      color: var(--accent);
-    }
-    .info-list {
-      list-style: none;
-      margin: 0; padding: 0; width: 100%;
-      font-size: 1.07rem;
-    }
-    .info-list li {
-      margin-bottom: 11px;
-      display: flex; align-items: center; gap: 12px;
-      color: var(--light);
-    }
-    .info-list i { color: var(--info);}
-    /* Quotes & Cards */
-    .quote-carousel {
-      display: flex; flex-direction: column; align-items: center;
-      margin: 54px 0 14px 0;
-    }
-    .quote-box {
-      font-size: 1.38rem;
+      font-size: 1.1rem;
       font-weight: 600;
-      background: linear-gradient(90deg, var(--accent), var(--danger), var(--info));
-      padding: 17px 30px;
-      border-radius: 15px;
-      color: #232a34;
-      box-shadow: 0 2px 14px #0002;
-      min-width: 230px;
-      min-height: 48px;
-      text-align: center;
-      letter-spacing: 1.1px;
-      transition: background 1s, color 1s;
-      margin-bottom: 9px;
-      width:fit-content;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-right: 1rem;
     }
-    /* Interactive cards */
-    .card-row {
+    .hero-cta:hover {
+      background: var(--accent);
+    }
+    .hero-img {
+      flex: 0 0 250px;
+      text-align: center;
+    }
+    .hero-img i {
+      font-size: 7rem;
+      color: var(--accent);
+      background: var(--bg);
+      border-radius: 50%;
+      padding: 1rem;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+    }
+    .section-title {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* Services */
+    .services {
       display: flex;
       flex-wrap: wrap;
-      gap: 28px;
+      gap: 2rem;
       justify-content: center;
-      margin: 40px 0 10px 0;
+      margin-top: 2rem;
     }
-    .site-card {
-      background: rgba(255,255,255,0.085);
+    .service-card {
+      background: var(--light);
       border-radius: 14px;
-      box-shadow: 0 2px 16px #0001;
-      min-width: 210px; max-width: 330px;
-      padding: 1.2em 1.1em 1.1em 1.1em;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+      padding: 1.5rem;
+      flex: 1 1 270px;
+      min-width: 250px;
+      max-width: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1rem;
+      transition: transform 0.15s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 4px 24px rgba(30,144,255,0.12);
+    }
+    .service-card i, .service-card img {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .service-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .service-desc {
+      font-size: 1rem;
+      color: var(--gray);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .service-price {
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .order-btn {
+      background: var(--primary);
       color: var(--light);
-      font-size: 1.09rem;
-      display: flex; flex-direction: column; align-items: flex-start;
-      transition: box-shadow 0.2s, transform 0.15s;
-      cursor: pointer;
-      min-height: 110px;
-      border: 2px solid transparent;
-    }
-    .site-card:hover {
-      box-shadow: 0 8px 30px #0003;
-      border: 2px solid var(--accent);
-      transform: translateY(-6px) scale(1.04);
-    }
-    .site-card i {font-size: 1.3em;margin-bottom:3px;}
-    /* Socials */
-    .social-row {
-      display: flex; gap: 18px; margin: 38px 0 0 0; justify-content: center; flex-wrap: wrap;
-    }
-    .social-btn {
-      display: flex; align-items: center; justify-content: center;
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      font-size: 1.8rem;
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent) 40%, var(--danger) 100%);
-      box-shadow: 0 2px 10px #0003;
-      transition: transform 0.18s, filter 0.18s, background 0.25s;
-      text-decoration: none;
       border: none;
-    }
-    .social-btn:hover {transform: scale(1.15) rotate(-8deg);filter: brightness(1.13);}
-    /* Music Player */
-    .music-player {
-      position: fixed; bottom: 22px; left: 22px;
-      background: rgba(17,24,39,0.92);
-      border-radius: 17px;
-      padding: 10px 22px 10px 13px;
-      display: flex; align-items: center; gap: 13px;
-      z-index: 50;
-      box-shadow: 0 2px 12px #0005;
-      font-size: 1.13rem;
-    }
-    .music-player button {
-      background: none; border: none; color: var(--accent); font-size: 1.35rem;
+      border-radius: 20px;
+      padding: 0.6rem 1.4rem;
+      font-weight: 600;
       cursor: pointer;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-top: auto;
+    }
+    .order-btn:hover {
+      background: var(--accent);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .testimonial {
+      background: var(--light);
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+      padding: 1.2rem 1rem;
+      max-width: 340px;
+      min-width: 220px;
+      margin-bottom: 1rem;
+    }
+    .testimonial .user {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.5rem;
+    }
+    .testimonial .user img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--primary);
+    }
+    .testimonial .user-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .testimonial .stars {
+      color: gold;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+    .testimonial-text {
+      font-size: 0.97rem;
+      color: var(--gray);
+      margin-bottom: 0.2rem;
+    }
+
+    /* Quotes */
+    .quotes-box {
+      margin: 2.5rem auto 0 auto;
+      background: var(--primary);
+      color: var(--light);
+      border-radius: 14px;
+      max-width: 700px;
+      padding: 1.2rem 1.5rem;
+      font-size: 1.3rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(30,144,255,0.07);
+      min-height: 70px;
+      transition: background 0.15s;
+    }
+
+    /* Contact */
+    .contact-box {
+      margin: 2.5rem auto 0 auto;
+      background: var(--light);
+      border-radius: 12px;
+      max-width: 700px;
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+    }
+    .contact-info {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: var(--gray);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.7rem;
+    }
+    .contact-info i {
+      color: var(--primary);
+      margin-right: 10px;
+    }
+    .contact-socials {
+      margin-top: 1rem;
+      font-size: 1.5rem;
+    }
+    .contact-socials a {
+      color: var(--primary);
+      margin-right: 1.2rem;
       transition: color 0.2s;
     }
-    .music-player button:hover {color: var(--danger);}
+    .contact-socials a:hover {
+      color: var(--accent);
+    }
+
+    /* FAQ */
+    .faq {
+      margin: 2.5rem auto 0 auto;
+      background: var(--light);
+      border-radius: 12px;
+      max-width: 700px;
+      padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+    }
+    .faq-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+    .faq-q {
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--gray);
+      margin-bottom: 0.2rem;
+      position: relative;
+    }
+    .faq-a {
+      font-size: 1rem;
+      color: var(--dark);
+      margin-left: 1.2rem;
+      display: none;
+    }
+    .faq-q.active + .faq-a {
+      display: block;
+    }
+
+    /* About Us */
+    .about-box {
+      margin: 2.5rem auto 0 auto;
+      background: var(--light);
+      border-radius: 12px;
+      max-width: 700px;
+      padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+      text-align: center;
+    }
+    .about-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .about-text {
+      font-size: 1.05rem;
+      color: var(--gray);
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      width: 62px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+      z-index: 999;
+      cursor: pointer;
+      transition: background 0.2s;
+      border: none;
+      outline: none;
+    }
+    .whatsapp-float:hover {
+      background: #128C7E;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
-      nav {padding: 14px 12px;}
-      .hero-title {font-size:2.1rem;}
-      .info-row{flex-direction:column;}
-      .card-row{flex-direction:column;}
-      .info-card{min-width: 90vw;max-width:97vw;}
-      .site-card{min-width: 90vw;max-width:97vw;}
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-img {
+        margin-top: 1rem;
+      }
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
     }
-    @media (max-width: 600px) {
-      nav {flex-direction: column; gap: 8px;}
-      .nav-links {flex-direction: column; gap: 1em;}
-      .music-player {bottom: 10px; left: 2vw;}
-      .hero {margin-top:10px;}
-    }
-    /* Hide nav links on mobile */
     @media (max-width: 700px) {
-      nav .nav-links {display:none;}
-      nav .menu-toggle {display:block;}
-      nav .nav-links.mobile-show {display:flex;flex-direction:column;gap:1em; background:rgba(34,42,52,0.98); position:absolute; top:56px; right:20px; border-radius:11px; padding:15px 25px;box-shadow:0 2px 18px #0006;}
-    }
-    /* Animated background */
-    #bg-animation {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.11;
+      .container {
+        padding: 1rem 0.5rem;
+      }
+      .about-box, .faq, .contact-box, .quotes-box {
+        padding: 1rem 0.6rem;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Animated Background Canvas -->
-  <canvas id="bg-animation"></canvas>
-  <!-- Navbar -->
-  <nav>
-    <span class="brand"><i class="fa fa-bolt"></i> PK-DRILLER</span>
-    <button class="menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></button>
-    <div class="nav-links" id="nav-links">
-      <a href="#hero">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#news">News</a>
-      <a href="#fun">Fun Zone</a>
-      <a href="#profile">Profile</a>
+  <header>
+    <div class="logo">
+      <i class="fas fa-bolt"></i> Pkdriller-Solutions
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#quotes">Business Quotes</a>
+      <a href="#faq">FAQ</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <div class="hero-title">Grow Your Business with <span style="color: var(--primary);">Pkdriller-Solutions</span></div>
+        <div class="hero-subtitle">
+          We deliver professional digital solutions: WhatsApp Bots, Website Development, Social Media Boosting, and more.<br>
+          Get top-rated, affordable tech services from Ksh 100!
+        </div>
+        <a class="hero-cta" href="https://wa.me/254794146821?text=Hello%20Pkdriller-Solutions%2C%20I%27m%20interested%20in%20your%20services!" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order Now on WhatsApp
+        </a>
+      </div>
+      <div class="hero-img">
+        <i class="fas fa-laptop-code"></i>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <div class="section-title" id="services">Our Services</div>
+    <section class="services">
+      <!-- Service 1: WhatsApp Bot Development -->
+      <div class="service-card">
+        <i class="fab fa-whatsapp"></i>
+        <div class="service-title">WhatsApp Bot Development</div>
+        <div class="service-desc">Automate your WhatsApp! Get a smart, custom bot to handle customers, send alerts, or collect leads.</div>
+        <div class="service-price">From 1,000 KSH</div>
+        <a class="order-btn" href="https://wa.me/254794146821?text=I%20want%20a%20WhatsApp%20Bot%20Developed%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 2: Website Development -->
+      <div class="service-card">
+        <i class="fas fa-globe"></i>
+        <div class="service-title">Website Development</div>
+        <div class="service-desc">Modern, responsive websites for your brand, shop, or portfolio. Fast delivery, mobile-ready.</div>
+        <div class="service-price">From 1,000 KSH</div>
+        <a class="order-btn" href="https://wa.me/254794146821?text=I%20want%20a%20Website%20Developed%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 3: Social Media Boosting -->
+      <div class="service-card">
+        <i class="fas fa-bullhorn"></i>
+        <div class="service-title">Social Media Boosting</div>
+        <div class="service-desc">Grow your followers & engagement on Facebook, Instagram, WhatsApp, and more at unbeatable rates.</div>
+        <div class="service-price">Affordable Price</div>
+        <a class="order-btn" href="https://wa.me/254794146821?text=I%20want%20Social%20Media%20Boosting%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 4: Logo Creation -->
+      <div class="service-card">
+        <i class="fas fa-pen-nib"></i>
+        <div class="service-title">Logo Design</div>
+        <div class="service-desc">Get a unique, high-quality logo for your business or project in hours!</div>
+        <div class="service-price">From 100 KSH</div>
+        <a class="order-btn" href="https://wa.me/254794146821?text=I%20want%20a%20Logo%20Designed%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 5: Poster Design -->
+      <div class="service-card">
+        <i class="fas fa-image"></i>
+        <div class="service-title">Poster Design</div>
+        <div class="service-desc">Vibrant, eye-catching posters for events, ads, and social media.</div>
+        <div class="service-price">150 KSH</div>
+        <a class="order-btn" href="https://wa.me/254794146821?text=I%20want%20a%20Poster%20Designed%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 6: Image Editing -->
+      <div class="service-card">
+        <i class="fas fa-edit"></i>
+        <div class="service-title">Image Editing</div>
+        <div class="service-desc">Enhance, retouch, or creatively edit your photos quickly and professionally.</div>
+        <div class="service-price">200 KSH</div>
+        <a class="order-btn" href="https://wa.me/254794146821?text=I%20want%20Image%20Editing%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 7: WhatsApp Bot Deployment -->
+      <div class="service-card">
+        <i class="fas fa-rocket"></i>
+        <div class="service-title">WhatsApp Bot Deployment</div>
+        <div class="service-desc">Already have a bot? We’ll deploy & maintain it for you, fast and reliably.</div>
+        <div class="service-price">100 KSH</div>
+        <a class="order-btn" href="https://wa.me/254794146821?text=I%20want%20WhatsApp%20Bot%20Deployment%20by%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Order on WhatsApp
+        </a>
+      </div>
+      <!-- Service 8: Custom Requests -->
+      <div class="service-card">
+        <i class="fas fa-lightbulb"></i>
+        <div class="service-title">Custom Digital Solutions</div>
+        <div class="service-desc">Need something else? Chat with us for custom automations, integrations, and tech help.</div>
+        <div class="service-price">Let's Discuss!</div>
+        <a class="order-btn" href="https://wa.me/254794146821?text=I%20have%20a%20custom%20request%20for%20Pkdriller-Solutions" target="_blank">
+          <i class="fab fa-whatsapp"></i> Chat Now
+        </a>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <div class="section-title" id="testimonials">What Our Clients Say</div>
+    <section class="testimonials">
+      <div class="testimonial">
+        <div class="user">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+          <span class="user-name">James K.</span>
+        </div>
+        <div class="stars">
+          ★★★★★
+        </div>
+        <div class="testimonial-text">
+          Pkdriller-Solutions built my WhatsApp bot in 2 days! My business is now booming. Highly recommended!
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="user">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+          <span class="user-name">Catherine M.</span>
+        </div>
+        <div class="stars">
+          ★★★★★
+        </div>
+        <div class="testimonial-text">
+          The new website is fast, modern, and looks amazing! Great prices and service.
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="user">
+          <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User">
+          <span class="user-name">Victor O.</span>
+        </div>
+        <div class="stars">
+          ★★★★★
+        </div>
+        <div class="testimonial-text">
+          Got my logo and posters in just a few hours. Super quality and very affordable.
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Quotes -->
+    <div class="section-title" id="quotes">Live Business Quotes</div>
+    <div class="quotes-box" id="live-quote">
+      Loading quotes...
     </div>
-  </nav>
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-title">Welcome to PK-DRILLER TECH HUB</div>
-    <div class="hero-tagline">Your all-in-one interactive tech space.<br>
-      <span style="color:var(--accent);">Modern. Smart. Fun. 🚀</span></div>
-    <button class="hero-btn" onclick="window.scrollTo({top:document.body.scrollHeight,left:0,behavior:'smooth'})">Explore Now</button>
-  </section>
-  <!-- Info Cards -->
-  <section class="info-row" id="info-row">
-    <div class="info-card">
-      <h3><i class="fa fa-user"></i> User Info</h3>
-      <ul class="info-list">
-        <li><i class="fa fa-user-circle"></i> <span id="user-title">Welcome, Guest!</span></li>
-        <li><i class="fa fa-calendar"></i> <span id="date"></span></li>
-        <li><i class="fa fa-clock"></i> <span id="time"></span></li>
-      </ul>
+
+    <!-- FAQ -->
+    <div class="faq" id="faq">
+      <div class="faq-title">Frequently Asked Questions</div>
+      <div class="faq-item">
+        <div class="faq-q">How do I order a service?</div>
+        <div class="faq-a">Simply click the WhatsApp order button on any service, and you’ll chat directly with us!</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How fast is delivery?</div>
+        <div class="faq-a">Most services are delivered within 24-48 hours. Fast-track is available on request!</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you offer support after delivery?</div>
+        <div class="faq-a">Yes, we offer free support for delivered projects and affordable maintenance plans.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I request a custom solution?</div>
+        <div class="faq-a">Absolutely! Use the “Custom Digital Solutions” card or contact us to discuss your idea.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What payment methods do you accept?</div>
+        <div class="faq-a">We accept M-Pesa and other local payment options. Details will be provided when you order.</div>
+      </div>
     </div>
-    <div class="info-card">
-      <h3><i class="fa fa-mobile-alt"></i> Device Info</h3>
-      <ul class="info-list">
-        <li><i class="fa fa-laptop"></i> <span id="device-type">Device: ...</span></li>
-        <li><i class="fa fa-battery-full"></i> <span id="battery">Battery: ...</span></li>
-        <li><i class="fa fa-globe"></i> <span id="ip">IP: ...</span></li>
-        <li><i class="fa fa-map-marker-alt"></i> <span id="city">City: ...</span></li>
-      </ul>
+
+    <!-- About Us -->
+    <div class="about-box" id="about">
+      <div class="about-title">About Pkdriller-Solutions</div>
+      <div class="about-text">
+        Pkdriller-Solutions is a Kenyan-based digital agency helping local businesses thrive online. We specialize in fast, affordable tech solutions for small businesses and individuals.<br>
+        <br>
+        <b>Our Mission:</b> To empower everyone with simple, powerful digital tools.<br>
+        <br>
+        <b>Why Choose Us?</b> <br>
+        - Super affordable pricing<br>
+        - Fast, friendly support<br>
+        - 5-star client satisfaction<br>
+        - 100% local, 100% reliable
+      </div>
     </div>
-  </section>
-  <!-- Quotes -->
-  <section class="quote-carousel">
-    <div class="quote-box" id="quote-box">Inspiring your journey...</div>
-  </section>
-  <!-- Interactive Cards -->
-  <section class="card-row" id="projects">
-    <div class="site-card"><i class="fa fa-rocket"></i> <strong>Dashboard</strong><br>See your activities, quick stats, and updates at a glance.</div>
-    <div class="site-card"><i class="fa fa-folder-open"></i> <strong>Projects</strong><br>Manage, view, and customize your tech projects.</div>
-    <div class="site-card"><i class="fa fa-newspaper"></i> <strong>News</strong><br>Stay updated with the latest tech news and trends.</div>
-    <div class="site-card"><i class="fa fa-comments"></i> <strong>Chat Room</strong><br>Connect & collaborate in real-time with your friends.</div>
-    <div class="site-card"><i class="fa fa-gamepad"></i> <strong>Fun Zone</strong><br>Enjoy tech games, quizzes, and brain teasers!</div>
-    <div class="site-card"><i class="fa fa-cogs"></i> <strong>Settings</strong><br>Personalize your hub experience.</div>
-  </section>
-  <!-- Social Links -->
-  <section class="social-row">
-    <a class="social-btn" style="background:linear-gradient(135deg,#4267B2,#60a5fa);" href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a class="social-btn" style="background:linear-gradient(135deg,#00acee,#2dd4bf);" href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-    <a class="social-btn" style="background:linear-gradient(135deg,#e1306c,#fb7185);" href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    <a class="social-btn" style="background:linear-gradient(135deg,#0077b5,#5eead4);" href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a class="social-btn" style="background:linear-gradient(135deg,#25d366,#10b981);" href="https://wa.me/" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a class="social-btn" style="background:linear-gradient(135deg,#ff0000,#fb7185);" href="https://youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-    <a class="social-btn" style="background:linear-gradient(135deg,#333,#60a5fa);" href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-    <a class="social-btn" style="background:linear-gradient(135deg,#7289da,#60a5fa);" href="https://discord.com" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
-  </section>
-  <!-- Music player -->
-  <div class="music-player" id="music-player">
-    <button id="music-toggle" title="Toggle Music"><i class="fa fa-volume-up"></i></button>
-    <span id="music-status">Music On</span>
-    <audio id="bg-music" loop>
-      <source src="https://cdn.pixabay.com/audio/2022/07/26/audio_124bfa97a2.mp3" type="audio/mp3">
-    </audio>
+
+    <!-- Contact -->
+    <div class="contact-box" id="contact">
+      <div class="section-title" style="margin-bottom: 1rem;">Contact Us</div>
+      <div class="contact-info">
+        <div><i class="fas fa-envelope"></i> Email: <a href="mailto: pkdriller520@gmail.com">pkdriller520@gmail.com</a></div>
+        <div><i class="fab fa-whatsapp"></i> WhatsApp: <a href="https://wa.me/254794146821" target="_blank">+254794146821</a></div>
+        <div><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
+      </div>
+      <div class="contact-socials">
+        <a href="https://wa.me/254794146821" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100091580206517" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/pk_tech01?igsh=MTM0Y2p3ZHpxMXZraA==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="mailto: pkdriller520@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
   </div>
-  <!-- JS -->
-  <script>
-    // Navbar Responsive
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    menuToggle.onclick = () => navLinks.classList.toggle('mobile-show');
 
-    // User/Device Info
-    function getDeviceType() {
-      const ua = navigator.userAgent;
-      if (/android/i.test(ua)) return "Android 📱";
-      if (/iPad|iPhone|iPod/.test(ua)) return "iOS 🍏";
-      if (/windows phone/i.test(ua)) return "Windows Phone";
-      if (/windows/i.test(ua)) return "Windows 💻";
-      if (/mac/i.test(ua)) return "Mac 🖥️";
-      if (/linux/i.test(ua)) return "Linux 🐧";
-      return "Unknown Device";
-    }
-    document.getElementById("device-type").innerText = "Device: " + getDeviceType();
-    // User welcome
-    document.getElementById("user-title").innerText = "Welcome, PKDRILLER0!";
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/254794146821?text=Hi%20Pkdriller-Solutions%2C%20I%20have%20a%20quick%20question!" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-    // Battery (optional)
-    if ('getBattery' in navigator) {
-      navigator.getBattery().then(function(battery) {
-        function updateBattery() {
-          let p = Math.round(battery.level*100) + "%";
-          let icon = battery.charging ? "⚡" : "";
-          document.getElementById("battery").innerText = `Battery: ${p} ${icon}`;
-        }
-        updateBattery();
-        battery.addEventListener('levelchange', updateBattery);
-        battery.addEventListener('chargingchange', updateBattery);
-      });
-    } else {
-      document.getElementById("battery").innerText = "Battery: N/A";
-    }
-    // IP/City (optional)
-    fetch('https://ipapi.co/json')
-      .then(res=>res.json()).then(data=>{
-        document.getElementById("ip").innerText = "IP: " + data.ip;
-        document.getElementById("city").innerText = data.city+", "+data.country_name;
-      }).catch(()=>{document.getElementById("ip").innerText="IP: N/A";document.getElementById("city").innerText="City: N/A";});
-    // Date/Time
-    function updateDateTime() {
-      const now = new Date();
-      document.getElementById("date").innerText = now.toLocaleDateString();
-      document.getElementById("time").innerText = now.toLocaleTimeString();
-    }
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-
-    // Quotes
-    const quotes = [
-      "Be yourself; everyone else is already taken.",
-      "The best way to get started is to quit talking and begin doing.",
-      "Dream big and dare to fail.",
-      "Success is not in what you have, but who you are.",
-      "Great things never come from comfort zones.",
-      "Stay hungry, stay foolish.",
-      "Believe you can and you’re halfway there.",
-      "Push yourself, because no one else is going to do it for you.",
-      "Don’t watch the clock; do what it does. Keep going.",
-      "It always seems impossible until it’s done.",
-      "Your limitation—it’s only your imagination.",
-      "Work hard in silence, let success make the noise.",
-      "Success doesn’t just find you. You have to go out and get it.",
-      "The harder you work for something, the greater you’ll feel when you achieve it.",
-      "Innovation distinguishes between a leader and a follower. - Steve Jobs"
-    ];
-    function showQuote() {
-      const q = quotes[Math.floor(Math.random()*quotes.length)];
-      document.getElementById("quote-box").innerText = q;
-    }
-    setInterval(showQuote, 2800);
-    window.onload = showQuote;
-
-    // Music Player
-    const musicToggle = document.getElementById('music-toggle');
-    const musicStatus = document.getElementById('music-status');
-    const bgMusic = document.getElementById('bg-music');
-    musicToggle.onclick = function() {
-      if (bgMusic.paused) {
-        bgMusic.play();
-        musicStatus.innerText = "Music On";
-        musicToggle.innerHTML = '<i class="fa fa-volume-up"></i>';
-      } else {
-        bgMusic.pause();
-        musicStatus.innerText = "Music Off";
-        musicToggle.innerHTML = '<i class="fa fa-volume-mute"></i>';
-      }
-    };
-    // Try autoplay after DOM loaded, fallback is user clicks toggle
-    window.addEventListener('DOMContentLoaded', () => {
-      bgMusic.play().catch(()=>{});
-    });
-
-    // Subtle animated background (circles)
-    const canvas = document.getElementById('bg-animation');
-    const ctx = canvas.getContext('2d');
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-    // Animate
-    let circles = [];
-    for (let i=0;i<24;i++) {
-      circles.push({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        r: 15+Math.random()*42,
-        dx: -0.5+Math.random(),
-        dy: -0.5+Math.random(),
-        c: `rgba(94,234,212,${.14+Math.random()*.1})`
-      });
-    }
-    function animate() {
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      for (let c of circles) {
-        ctx.beginPath();
-        ctx.arc(c.x, c.y, c.r, 0, Math.PI*2);
-        ctx.fillStyle = c.c;
-        ctx.fill();
-        c.x += c.dx; c.y += c.dy;
-        if (c.x<0||c.x>canvas.width) c.dx*=-1;
-        if (c.y<0||c.y>canvas.height) c.dy*=-1;
-      }
-      requestAnimationFrame(animate);
-    }
-    animate();
-  </script>
-</body>
-</html>
+  <!-- JavaScript for Quotes and FAQ -->
+  <
